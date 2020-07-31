@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common::common_header(~{::title},~{})">
+
+  <title>选课</title>
+
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <div th:replace="~{common/common::sidebar(first='teach',second='choose')}"></div>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <div th:replace="~{common/common::topbar}"></div>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <!-- 可选表 -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h3>预选课程</h3>
+                <div class="pull-right">
+                  <button class="btn btn-label btn-w-lg btn-primary"><label><i class="mdi mdi-checkbox-marked-circle-outline"></i></label> 确认提交</button>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <table class="table table-hover">
+                  <!-- 表头 -->
+                  <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">课程</th>
+                    <th scope="col">学分</th>
+                    <th scope="col">总学时</th>
+                    <th scope="col">类别</th>
+                    <th scope="col">授课方式</th>
+                    <th scope="col">考核方式</th>
+                    <th scope="col">选择</th>
+                    <th scope="col">操作</th>
+                  </tr>
+                  </thead>
+                  <!-- 表格内容 -->
+                  <tbody id="tbody">
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>[320652]软件测试技术</td>
+                      <td>2.5</td>
+                      <td>40</td>
+                      <td>专业课/限选课</td>
+                      <td>讲授</td>
+                      <td>考试</td>
+                      <td></td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-w-md choose">
+                          查看课程安排
+                        </button>
+                      </td>
+                  </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>[30214]软件测试技术</td>
+                      <td>2.5</td>
+                      <td>40</td>
+                      <td>专业课/限选课</td>
+                      <td>讲授</td>
+                      <td>考试</td>
+                      <td></td>
+                      <td>
+                        <button type="button" class="btn btn-primary btn-w-md choose">
+                          查看课程安排
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+          <!-- 已选表 -->
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header">
+                <h3>正选结果</h3>
+                <div class="pull-right">
+                  <button class="btn btn-label btn-w-lg btn-warning"><label><i class="mdi mdi-refresh"></i></label> 刷新</button>
+                </div>
+              </div>
+
+              <div class="card-body">
+
+                <table class="table table-hover">
+                  <!-- 表头 -->
+                  <thead>
+                  </thead>
+                  <!-- 表格内容 -->
+                  <tbody >
+                  </tbody>
+                </table>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+
+    <!-- 查看课程教学安排的模态框 -->
+    <div class="modal fade bs-example-modal-lg" id="confirm-model" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            <!-- 标题 -->
+            <h4 class="modal-title" id="myModalLabel">课程详情</h4>
+          </div>
+          <div class="modal-body">
+            <!-- 内容 -->
+
+            <table class="table table-hover">
+              <!-- 表头 -->
+              <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">课程</th>
+                <th scope="col">任课教师</th>
+                <th scope="col">上课时间和地点</th>
+                <th scope="col">选择</th>
+              </tr>
+              </thead>
+              <!-- 表格内容 -->
+              <tbody id="model-tbody">
+              <tr>
+                <th scope="row">1</th>
+                <td>[320652]软件测试技术</td>
+                <td>张三</td>
+                <td>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                </td>
+                <td>
+                  <label class="lyear-radio radio-primary">
+                    <input type="radio" name="pno">
+                    <span></span>
+                  </label>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>[320652]软件测试技术</td>
+                <td>张三</td>
+                <td>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                  <p>[周2-9]星期一[3-4节] - 教学楼203</p>
+                </td>
+                <td>
+                  <label class="lyear-radio radio-primary">
+                    <input type="radio" name="pno">
+                    <span></span>
+                  </label>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+            <button type="button" class="btn btn-primary" onclick="choose()">确认选择</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 查看课程教学安排的模态框 -->
+
+
+  </div>
+</div>
+
+<!-- thymeleaf fragment -->
+<div th:replace="common/common::common_js(~{::script})">
+  <script>
+    /* 常量值 */
+    let PNO;
+    let CNO;
+    let lineId;
+    /* 数据传值到模态框 */
+    function cm(){
+      let data = [];
+      $("input[name='oper']:checked").each(function (i) {
+        let val = "";
+        val = val + '<th scope="row">'+(i+1)+'</th>';
+        $(this).parents("tr").find('td').each(function (i){
+          if (i !== $(this).parents("tr").find('td').length - 1){
+            val = val+"<td>"+$(this).html()+"</td>"
+          }
+        })
+        data.push($.trim(val));
+      });
+      let tbody = $("#tbody")
+      tbody.html(""); //初始化
+      for (let datum of data) {
+        tbody.append("<tr>"+datum+"</tr>");
+      }
+    }
+    /* 模态框确认后异步提交到后台 */
+    function confirm(){
+      $.ajax({
+        url: window.location.pathname+'/confirm',
+        type: "POST",
+        data: {
+          cno: getCno(),
+          pno: getPno(),
+        },
+        success: function () {
+          alert("提交成功，正在返回结果，请稍后");
+        },
+        error: function (data) {
+          alert("服务器忙，请重试"+data);
+        }
+      });
+    }
+    function getCno(){
+      $("#tbody").find("tr").find("td")
+      return "";
+    }
+    function getPno(){
+      return "";
+    }
+    /* class 类绑定单击事件，获取该行的CNO */
+    $(".choose").on("click",function () {
+      CNO = $(this).parents("tr").find("td:eq(0)").text();
+      lineId = $(this).parents("tr").find("th:eq(0)").text();
+      $.ajax({
+        url: "/class/list/"+CNO.substring(1,6),
+        type: "GET",
+        async: false,
+        success:function(data){
+          $("#model-tbody").html("")
+          if (data.code === undefined){
+            let p = []
+            for(let i in data){
+              let temp = data[i];
+              if (data[i].pno in p){
+                let time = "<p>["+temp.startWeek+"-"+temp.endWeek+"周] 星期"+temp.day+" ["+temp.startTime+"-"+temp.endTime+"节] - "+temp.location+"</p>"
+                $("#model-tbody").find("tr").eq(data[i].pno-1).find("td").eq(2).append(time)
+              }else{
+                p.push(temp.pno);
+                let th = "<th>"+temp.pno+"</th>";
+                let c = "<td>"+CNO+"</td>"
+                let teacher = "<td>"+temp.teacherName+"</td>"
+                let time = "<td><p>["+temp.startWeek+"-"+temp.endWeek+"周] 星期"+temp.day+" ["+temp.startTime+"-"+temp.endTime+"节] - "+temp.location+"</p></td>"
+                let ch = "<td>\n" +
+                        "                  <label class=\"lyear-radio radio-primary\">\n" +
+                        "                    <input type=\"radio\" name=\"pno\">\n" +
+                        "                    <span></span>\n" +
+                        "                  </label>\n" +
+                        "                </td>"
+                let tr = "<tr>"+th+c+teacher+time+ch+"</tr>";
+                $("#model-tbody").append(tr)
+              }
+            }
+            $('#confirm-model').modal('show')
+          }else{
+            alert(data.msg);
+          }
+
+        },
+        error:function(data){
+          alert("获取数据失败"+data);
+        }
+
+      });
+
+    });
+    /* 模态框确认 获取选择的PNO 关闭模态框 将PNO放入预选表中 */
+    function choose(){
+      PNO = $('input[name="pno"]:checked').parents("tr").find("th:eq(0)").text();
+      console.log(PNO)
+      $('#confirm-model').modal('hide');
+      if (PNO !== ""){
+        $("#tbody").find("tr").eq(lineId-1).find("td").eq(6).html("<p style='color: red'>已选：["+PNO+"]</p>")
+      }else{
+        $("#tbody").find("tr").eq(lineId-1).find("td").eq(6).html("")
+      }
+    }
+
+  </script>
+</div>
+
+</body>
+</html>

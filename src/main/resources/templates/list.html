@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh"  xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/common::common_header(~{::title},~{})">
+
+  <title>课程表</title>
+
+
+</head>
+  
+<body>
+<div class="lyear-layout-web">
+  <div class="lyear-layout-container">
+    <!--左侧导航-->
+    <div th:replace="~{common/common::sidebar(first='teach',second='list')}"></div>
+    <!--End 左侧导航-->
+    
+    <!--头部信息-->
+    <div th:replace="~{common/common::topbar}"></div>
+    <!--End 头部信息-->
+    
+    <!--页面主要内容-->
+    <main class="lyear-layout-content">
+      
+      <div class="container-fluid">
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header"><h4>2019-2020学年第二学期</h4></div>
+              <div class="card-body">
+
+                <div class="table-responsive">
+                  <table class="table">
+                    <!-- 表头 -->
+                    <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>课程</th>
+                      <th>学分</th>
+                      <th>总学时</th>
+                      <th>类别</th>
+                      <th>授课方式</th>
+                      <th>考核方式</th>
+                      <th>任课教师</th>
+                      <th>上课时间和地点</th>
+                    </tr>
+                    </thead>
+                    <!-- 表格内容 -->
+                    <tbody>
+                    <tr th:each="class,itemstate:${list}">
+                      <th scope="row" th:text="${itemstate.count}"></th>
+                      <td th:text="'['+${class.cno}+'] '+${class.cname}"></td>
+                      <td th:text="${class.credit}"></td>
+                      <td th:text="${class.clazzHour}"></td>
+                      <td th:text="${class.clazzType}"></td>
+                      <td th:text="${class.teachType}"></td>
+                      <td th:text="${class.testType}"></td>
+                      <td >
+                        <p th:text="${class.planList[0].teacherName}"></p>
+                      </td>
+                      <td >
+                        <p th:each="plan: ${class.planList}" th:text="'['+${plan.startWeek}+'-'+${plan.endWeek}+'周] 星期'+${plan.day}+' ['+${plan.startTime}+'-'+${plan.endTime}+'节] - '+${plan.location}">[周2-9]星期一[3-4节] - 教学楼203</p>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+      
+    </main>
+    <!--End 页面主要内容-->
+  </div>
+</div>
+<div th:replace="common/common::common_js(~{})">
+
+</div>
+
+</body>
+</html>
