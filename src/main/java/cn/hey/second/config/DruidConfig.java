@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Druid 配置
  * http://localhost:8080/druid/login.html
- * @author Long
+ * @author Luo
  */
 @Configuration
 public class DruidConfig {
