@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 /**
  * MVC 配置
  * 视图控制器的映射配置
- * @author Long
+
  */
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
