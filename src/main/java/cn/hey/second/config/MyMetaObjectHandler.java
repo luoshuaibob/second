@@ -9,7 +9,6 @@ import java.util.Date;
 
 /**
  * choose 实体 的插入和更新时间的自动填充策略配置
- * @author Long
  */
 @Slf4j
 @Component
