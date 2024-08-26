@@ -22,7 +22,7 @@
         <lombok.version>1.18.12</lombok.version>
         <mybatis.version>2.1.2</mybatis.version>
         <mybatis-plus.version>3.3.1.tmp</mybatis-plus.version>
-        <swagger.version>2.9.2</swagger.version>
+        <swagger.version>2.10.0</swagger.version>
         <shiro.version>1.5.3</shiro.version>
     </properties>
 
